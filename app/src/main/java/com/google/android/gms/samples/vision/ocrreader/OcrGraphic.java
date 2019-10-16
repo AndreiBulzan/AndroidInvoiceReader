@@ -36,10 +36,11 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
 
     private static final int TEXT_COLOR = Color.WHITE;
     private static final int TEXT_COLOR_IMPORTANT = Color.rgb(255, 65, 54);
-
+    private static final int TEXT_COLOR_GREEN = Color.rgb(22, 255, 22);
     private static Paint rectPaint;
     private static Paint textPaint1;
     private static Paint textPaint2;
+    private static Paint textPaint3;
     private final TextBlock textBlock;
 
     OcrGraphic(GraphicOverlay overlay, TextBlock text) {
@@ -63,6 +64,11 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
             textPaint2 = new Paint();
             textPaint2.setColor(TEXT_COLOR);
             textPaint2.setTextSize(44.0f);
+        }
+        if (textPaint3 == null) {
+            textPaint3 = new Paint();
+            textPaint3.setColor(TEXT_COLOR_GREEN);
+            textPaint3.setTextSize(64.0f);
         }
         // Redraw the overlay, as this graphic has been added.
         postInvalidate();
@@ -111,16 +117,18 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
         // Break the text into multiple lines and draw each one according to its own bounding box.
         List<? extends Text> textComponents = textBlock.getComponents();
         for(Text currentText : textComponents) {
-            if((currentText.getValue().toLowerCase().contains("nr. factura")) || (currentText.getValue().toLowerCase().contains("serie")) || (currentText.getValue().toLowerCase().contains("seria")) || (currentText.getValue().toLowerCase().contains("cif")) || (currentText.getValue().toLowerCase().contains("cui")) || (currentText.getValue().toLowerCase().contains("data"))) {
+            if((currentText.getValue().toLowerCase().contains("nr. factura")) ||(currentText.getValue().toLowerCase().contains("factura nr")) || (currentText.getValue().toLowerCase().contains("cnp")) || (currentText.getValue().toLowerCase().contains("Numar factura")) || (currentText.getValue().toLowerCase().contains("serie")) || (currentText.getValue().toLowerCase().contains("seria")) || (currentText.getValue().toLowerCase().contains("cif")) || (currentText.getValue().toLowerCase().contains("cui")) || (currentText.getValue().toLowerCase().contains("data"))) {
                 float left = translateX(currentText.getBoundingBox().left);
                 float bottom = translateY(currentText.getBoundingBox().bottom);
                 canvas.drawText(currentText.getValue(), left, bottom, textPaint1);
             }
-            if(currentText.getValue().toLowerCase().contains("adresa")){
-                float left = translateX(currentText.getBoundingBox().left);
-                float bottom = translateY(currentText.getBoundingBox().bottom);
-                canvas.drawText(currentText.getValue(), left, bottom, textPaint2);
-            }
+                if(currentText.getValue().toLowerCase().contains("adresa") || (currentText.getValue().toLowerCase().contains("cant"))) {
+                    float left = translateX(currentText.getBoundingBox().left);
+                    float bottom = translateY(currentText.getBoundingBox().bottom);
+                    canvas.drawText(currentText.getValue(), left, bottom, textPaint2);
+                    }
+
+
         }
     }
 }
