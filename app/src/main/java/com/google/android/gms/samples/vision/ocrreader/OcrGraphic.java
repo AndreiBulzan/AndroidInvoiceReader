@@ -19,11 +19,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Handler;
 
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.text.Text;
 import com.google.android.gms.vision.text.TextBlock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,6 +44,8 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
     private static Paint textPaint2;
     private static Paint textPaint3;
     private final TextBlock textBlock;
+    private ArrayList<String> row1, row2, row3, row4;
+
 
     OcrGraphic(GraphicOverlay overlay, TextBlock text) {
         super(overlay);
@@ -58,12 +62,12 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
         if (textPaint1 == null) {
             textPaint1 = new Paint();
             textPaint1.setColor(TEXT_COLOR_IMPORTANT);
-            textPaint1.setTextSize(54.0f);
+            textPaint1.setTextSize(60.0f);
         }
         if (textPaint2 == null) {
             textPaint2 = new Paint();
             textPaint2.setColor(TEXT_COLOR);
-            textPaint2.setTextSize(44.0f);
+            textPaint2.setTextSize(55.0f);
         }
         if (textPaint3 == null) {
             textPaint3 = new Paint();
@@ -111,23 +115,45 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
             return;
         }
         // Draws the bounding box around the TextBlock.
-
-
-
+    /*
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                    row1.clear();
+                row2.clear();
+                row3.clear();
+                row4.clear();
+                // yourMethod();
+            }
+        }, 5000);
+        */
         // Break the text into multiple lines and draw each one according to its own bounding box.
         List<? extends Text> textComponents = textBlock.getComponents();
         for(Text currentText : textComponents) {
-            if((currentText.getValue().toLowerCase().contains("nr. factura")) ||(currentText.getValue().toLowerCase().contains("factura nr")) || (currentText.getValue().toLowerCase().contains("cnp")) || (currentText.getValue().toLowerCase().contains("Numar factura")) || (currentText.getValue().toLowerCase().contains("serie")) || (currentText.getValue().toLowerCase().contains("seria")) || (currentText.getValue().toLowerCase().contains("cif")) || (currentText.getValue().toLowerCase().contains("cui")) || (currentText.getValue().toLowerCase().contains("data"))) {
+            if((currentText.getValue().toLowerCase().contains("nr. factura")) ||(currentText.getValue().toLowerCase().contains("factura nr")) || (currentText.getValue().toLowerCase().contains("cnp")) || (currentText.getValue().toLowerCase().contains("Numar factura")) || (currentText.getValue().toLowerCase().contains("serie")) || (currentText.getValue().toLowerCase().contains("seria")) || (currentText.getValue().toLowerCase().contains("cif")) || (currentText.getValue().toLowerCase().contains("facturii")) || (currentText.getValue().toLowerCase().contains("factura")) || (currentText.getValue().toLowerCase().contains("cui")) || (currentText.getValue().toLowerCase().contains("data"))) {
                 float left = translateX(currentText.getBoundingBox().left);
                 float bottom = translateY(currentText.getBoundingBox().bottom);
-                canvas.drawText(currentText.getValue(), left, bottom, textPaint1);
+                canvas.drawText(currentText.getValue(), left, bottom, textPaint2);
+                //row1.add(currentText.getValue());
             }
-                if(currentText.getValue().toLowerCase().contains("adresa") || (currentText.getValue().toLowerCase().contains("cant"))) {
+                if(currentText.getValue().toLowerCase().contains("cnp")  || (currentText.getValue().toLowerCase().contains("cant"))) {
                     float left = translateX(currentText.getBoundingBox().left);
                     float bottom = translateY(currentText.getBoundingBox().bottom);
                     canvas.drawText(currentText.getValue(), left, bottom, textPaint2);
+                    //row2.add(currentText.getValue());
                     }
-
+            if(currentText.getValue().toLowerCase().contains("adresa") || currentText.getValue().toLowerCase().contains("bulevard") || currentText.getValue().toLowerCase().contains("blvd") || currentText.getValue().toLowerCase().contains("strada") || (currentText.getValue().toLowerCase().contains("str."))) {
+                float left = translateX(currentText.getBoundingBox().left);
+                float bottom = translateY(currentText.getBoundingBox().bottom);
+                canvas.drawText(currentText.getValue(), left, bottom, textPaint3);
+                //row3.add(currentText.getValue());
+            }
+            if(currentText.getValue().toLowerCase().contains("tva") || currentText.getValue().toLowerCase().contains("cota") || currentText.getValue().toLowerCase().contains("total") || currentText.getValue().toLowerCase().contains("pret")) {
+                float left = translateX(currentText.getBoundingBox().left);
+                float bottom = translateY(currentText.getBoundingBox().bottom);
+                canvas.drawText(currentText.getValue(), left, bottom, textPaint3);
+                //row4.add(currentText.getValue());
+            }
 
         }
     }

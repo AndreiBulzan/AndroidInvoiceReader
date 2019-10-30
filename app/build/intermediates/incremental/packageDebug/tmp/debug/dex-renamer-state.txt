@@ -1,4 +1,7 @@
-#Wed Oct 09 23:13:12 EEST 2019
-base.0=C\:\\Users\\Andrei\\Desktop\\android-vision-master\\android-vision-master\\visionSamples\\ocr-codelab\\ocr-reader-complete\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Wed Oct 30 23:13:22 EET 2019
+base.0=C\:\\Users\\Andrei\\Desktop\\android-vision-master\\android-vision-master\\visionSamples\\ocr-codelab\\ocr-reader-complete\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=C\:\\Users\\Andrei\\Desktop\\android-vision-master\\android-vision-master\\visionSamples\\ocr-codelab\\ocr-reader-complete\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex

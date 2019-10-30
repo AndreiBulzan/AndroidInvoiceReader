@@ -31,9 +31,6 @@ import java.util.ArrayList;
 public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
 
     private GraphicOverlay<OcrGraphic> graphicOverlay;
-    private ArrayList<String> previousConsistency = new ArrayList<String>();
-    private int [] countConsistency;
-    int countTimesDetections = 0;
 
     OcrDetectorProcessor(GraphicOverlay<OcrGraphic> ocrGraphicOverlay) {
         graphicOverlay = ocrGraphicOverlay;
@@ -50,21 +47,12 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
     public void receiveDetections(Detector.Detections<TextBlock> detections) {
         graphicOverlay.clear();
         SparseArray<TextBlock> items = detections.getDetectedItems();
-        if(this.previousConsistency.isEmpty() || this.countTimesDetections > 100) {
-            this.countConsistency = new int[items.size()];
-            for (int i = 0; i < items.size(); i++) {
-                this.previousConsistency.add("");
-                this.countTimesDetections++;
-                this.countConsistency[i] = 0;
-            }
-        }
+
 
         for (int i = 0; i < items.size(); ++i) {
             TextBlock item = items.valueAt(i);
             if (item != null && item.getValue() != null) {
                 Log.d("OcrDetectorProcessor", "Text detected! " + item.getValue());
-                if(this.previousConsistency.toArray()[i].equals(item.getValue()))
-                    this.countConsistency[i] ++;
 
                 OcrGraphic graphic = new OcrGraphic(graphicOverlay, item);
                 graphicOverlay.add(graphic);

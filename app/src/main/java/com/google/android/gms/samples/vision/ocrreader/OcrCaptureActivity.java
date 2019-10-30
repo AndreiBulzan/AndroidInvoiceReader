@@ -217,6 +217,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 .setFacing(CameraSource.CAMERA_FACING_BACK)
                 .setRequestedPreviewSize(1280, 1024)
                 .setRequestedFps(2.0f)
+                //.setRequestedFps(0.2f)
                 .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
                 .setFocusMode(autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO : null)
                 .build();
@@ -229,6 +230,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         startCameraSource();
+
     }
 
     /**
