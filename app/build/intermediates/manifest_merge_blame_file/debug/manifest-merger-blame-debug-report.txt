@@ -1,0 +1,80 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.google.android.gms.samples.vision.ocrreader"
+4    android:installLocation="auto"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="21"
+9-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml
+10        android:targetSdkVersion="27" />
+10-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml
+11
+12    <uses-feature android:name="android.hardware.camera" />
+12-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:6:5-60
+12-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:6:19-57
+13
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:8:5-65
+14-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:8:22-62
+15
+16    <application
+16-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:10:5-32:19
+17        android:allowBackup="true"
+17-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:11:9-35
+18        android:debuggable="true"
+19        android:fullBackupContent="false"
+19-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:12:9-42
+20        android:hardwareAccelerated="true"
+20-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:13:9-43
+21        android:icon="@drawable/icon"
+21-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:14:9-38
+22        android:label="OcrReaderApp"
+22-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:15:9-37
+23        android:supportsRtl="true"
+23-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:16:9-37
+24        android:testOnly="true"
+25        android:theme="@style/Theme.AppCompat" >
+25-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:17:9-47
+26        <meta-data
+26-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:18:9-20:69
+27            android:name="com.google.android.gms.version"
+27-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:19:13-58
+28            android:value="@integer/google_play_services_version" />
+28-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:20:13-66
+29        <meta-data
+29-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:21:9-23:35
+30            android:name="com.google.android.gms.vision.DEPENDENCIES"
+30-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:22:13-70
+31            android:value="ocr" />
+31-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:23:13-32
+32
+33        <activity
+33-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:25:9-31:20
+34            android:name="com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity"
+34-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:25:19-100
+35            android:label="Read Text" >
+35-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:26:13-38
+36            <intent-filter>
+36-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:27:13-30:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:28:17-69
+37-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:28:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:29:17-77
+39-->C:\Users\Andrei\Desktop\android-vision-master\android-vision-master\visionSamples\ocr-codelab\ocr-reader-complete\app\src\main\AndroidManifest.xml:29:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Andrei\.gradle\caches\transforms-2\files-2.1\fb6e9d6481d9457758e78159c8f7d872\play-services-base-15.0.1\AndroidManifest.xml:23:9-26:75
+43            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+43-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Andrei\.gradle\caches\transforms-2\files-2.1\fb6e9d6481d9457758e78159c8f7d872\play-services-base-15.0.1\AndroidManifest.xml:24:13-79
+44            android:exported="false"
+44-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Andrei\.gradle\caches\transforms-2\files-2.1\fb6e9d6481d9457758e78159c8f7d872\play-services-base-15.0.1\AndroidManifest.xml:25:13-37
+45            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+45-->[com.google.android.gms:play-services-base:15.0.1] C:\Users\Andrei\.gradle\caches\transforms-2\files-2.1\fb6e9d6481d9457758e78159c8f7d872\play-services-base-15.0.1\AndroidManifest.xml:26:13-72
+46    </application>
+47
+48</manifest>
